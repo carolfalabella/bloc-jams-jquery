@@ -1,10 +1,9 @@
 class Helper {
-  // constructor(Song) {
-  //   this.song = song;
-  // }
+
   playPauseAndUpdate(song) {
+    const duration = player.getDuration();
+    $('#time-control .total-time').text(player.prettyTime(duration));
     player.playPause(song);
-    $('#time-control .total-time').text( duration );
   }
 }
 

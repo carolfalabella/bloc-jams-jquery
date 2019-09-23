@@ -2,6 +2,7 @@
    // iterate through album.songs, and for each song object,
    // create a new song element, and then append that element to the #song-list table.
    album.songs.forEach( (song, index) => {
+     let songDuration = player.prettyTime(song.duration);
      song.element = $(`
        <tr>
          <td>
@@ -12,7 +13,7 @@
            </button>
          </td>
          <td>${song.title}</td>
-         <td>${song.duration}</td>
+         <td>${songDuration}</td>
         </tr>
      `);
      // play/pause song element

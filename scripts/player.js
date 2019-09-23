@@ -1,5 +1,5 @@
 class Player {
-  constructor () {
+  constructor() {
     this.currentlyPlaying = album.songs[0];
     this.playState = 'stopped';
     this.volume = 80;
@@ -14,7 +14,7 @@ class Player {
     return this.soundObject.getTime();
   }
 
-  playPause (song = this.currentlyPlaying) {
+  playPause(song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
       // Stop the currently playing sound file (even if nothing is playing)
       this.soundObject.stop();
@@ -38,14 +38,18 @@ class Player {
     }
   }
 
-  skipTo (percent) {
+  skipTo(percent) {
     if (this.playState !== 'playing') { return }
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
   }
 
-  setVolume (percent) {
+  setVolume(percent) {
     this.volume = percent;
     this.soundObject.setVolume(percent);
+  }
+
+  prettyTime(timeInSeconds) {
+    return Math.floor(timeInSeconds / 60)+':'+Math.floor(timeInSeconds % 60);
   }
 }
 
