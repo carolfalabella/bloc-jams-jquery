@@ -6,6 +6,7 @@
   });
 
   $('button#next').on('click', function() {
+    // if no song is playing we can't go next
     if (player.playState !== 'playing') { return; }
 
     const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
